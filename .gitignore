@@ -1,0 +1,27 @@
+## VS Code workspace file (local dev only, not part of the project)
+*.code-workspace
+
+## OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+
+## Environment / secrets
+.env
+.env.*
+
+## PHP / dependency artifacts
+vendor/
+composer.lock
+
+## Python (gpx/)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+## Logs
+*.log
+
+## Build artifacts / archives
+wna/wna.zip

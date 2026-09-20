@@ -1,0 +1,431 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+[data-bs-theme="dark"] {
+    .navbarx {
+        background: #000000;
+        border-bottom: 4px solid #82B446;
+        box-shadow: 0px 0px 0px #D1F397;
+    }
+    a.nav-link, .pmnb a {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    .odd {
+        background: #444444;
+    }
+
+    .prvbox {
+        background: #414C33;
+        color: #FFFFFF;
+    }
+
+    .avisos, .footer {
+        background: #414C33;
+    }
+
+    .prvposition {
+        background: #414C33;
+        color: #FFFFFF;
+    }
+    a:not(.nav-link, .pmnb) {
+        text-decoration: none;
+        color: #82B446;
+    }
+
+    a:not(.nav-link):hover {
+        text-decoration: none;
+        color: #d1f397;
+    }
+
+
+}
+
+[data-bs-theme="light"] {
+    .navbarx {
+        background: #FFFFFF;
+        border-bottom: 4px solid #82B446;
+        box-shadow: 0px 0px 0px #D1F397;
+    }
+    a.nav-link, .pmnb a {
+        text-decoration: none;
+    }
+    .odd {
+        background: #EDF0F2;
+    }
+
+    .prvbox {
+        background: #414C33;
+        color: #FFFFFF;
+    }
+
+    .avisos, .footer {
+        background: #414C33;
+    }
+
+    .prvposition {
+        background: #414C33;
+        color: #FFFFFF;
+    }
+
+    a.pmnb {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    a:not(.nav-link, .pmnb) {
+        text-decoration: none;
+        color: #82B446;
+    }
+
+    a:not(.nav-link):hover {
+        text-decoration: none;
+        color: #7E6526;
+    }
+    .gan{
+        background: #414C33;
+;
+    }
+}
+
+.prvtit{
+    text-align: center;
+}
+.col-md-4, .col-lg-4, .col-sm-4 {
+    border: 0px dotted red;
+}
+
+.container {
+    border: 0px dotted green;
+}
+
+.row {
+    border: 0px dotted blue;
+}
+
+.col-sm-8 img, .col-sm-12 img {
+    padding: 5px;
+}
+
+.col-sm-8 td img, .col-sm-12 td img {
+    padding: 10px;
+}
+
+hr {
+    border-top: 1px solid #DDDDDD;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-width: 300px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+
+a.pmn {
+    text-decoration: none;
+    color: #6A7D53;
+}
+
+a.pmn:hover {
+    text-decoration: none;
+    color: #7E6526;
+}
+
+a.pmnb {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a.pmnb:hover {
+    text-decoration: none;
+    color: #7E6526;
+}
+
+a.info {
+    color: #FF6A00;
+}
+
+a.info:hover {
+    text-decoration: none;
+    color: #FF6A00;
+}
+
+H1 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    color: #999999;
+}
+
+H2 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    color: #999999;
+}
+
+H3 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    color: #999999;
+}
+
+form {
+    /*
+    font-size: 14px;
+     */
+
+}
+
+input {
+    /*
+    font-size: 14px;
+
+     */
+    border: 1px solid #AAAAAA;
+}
+
+textarea {
+    /*
+    font-size: 14px;
+
+     */
+    border: 1px solid #AAAAAA;
+}
+
+select {
+    /*
+    font-size: 14px;
+     */
+
+}
+
+.ipt input {
+    max-width: 100%;
+}
+
+.ipt select {
+    max-width: 100%;
+}
+
+.lbl {
+    width: 280px;
+    padding: 2px;
+}
+
+.ipt {
+    min-width: 300px;
+    width: 60%;
+    max-width: 100%;
+    padding: 2px;
+}
+
+.navbar-default {
+    border-width: 1px;
+    border-color: transparent;
+    background: transparent;
+    margin-bottom: 0px;
+    border-radius: 0;
+}
+
+.navbar-brand:focus {
+    outline: 0px;
+}
+.panel-default {
+    border-width: 1px;
+    border-color: #93CE42;
+}
+
+.form-group {
+    padding-top: 10px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-weight: normal;
+    color: #000000;
+}
+.navbar{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+.footer {
+    /*
+     position: absolute;
+     bottom: 0;
+      height: 50px;
+     */
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    background-color: #6A7D53;
+    min-height: 25px;
+}
+
+span.image-missing {
+    background: transparent;
+    color: #999999;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 20px;
+    display: table;
+
+    position: absolute;
+
+    height: 96%;
+    left: 2%;
+    top: 2%;
+    width: 96%;
+}
+
+span.text-content {
+    background: rgba(125, 125, 200, 0.5);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0;
+    font-weight: bold;
+    display: table;
+    /*
+    position: absolute;
+     */
+
+    top: 8px;
+}
+
+span.text-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.icell:hover span.text-content {
+    opacity: 1;
+}
+
+/* Customize the carousel */
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 0px;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+    margin-bottom: 20px; padding: 10px; min-width:250px; text-align: center;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    background-color: #000000;
+}
+
+.carousel-inner > .item > img {
+    min-width: 100%;
+    margin: auto;
+}
+
+.link-content-c {
+    width: 270px;
+    height: 180px;
+}
+
+.link-content-d {
+    width: 270px;
+    height: 270px;
+}
+
+.link-content-e-f {
+    width: 210px;
+    height: 180px;
+}
+
+.link-content-g {
+    width: 270px;
+    height: 48px;
+}
+
+.link-content-h {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #D1F397;
+}
+
+.carousel-caption H1, H2, p > a {
+    color: #FFFFFF;
+}
+
+.carousel-inner > .item > img {
+    max-width: 250%;
+}
+
+@media ( max-width: 480px) {
+    .ipt {
+        width: 100%;
+    }
+}
+
+@media ( min-width: 480px) and (max-width: 768px) {
+
+}
+
+@media ( min-width: 768px) and (max-width: 991px) {
+    .link-content-c {
+        width: 234px;
+        height: 156px;
+    }
+
+    .link-content-d {
+        width: 234px;
+        height: 234px;
+    }
+}
+
+@media ( min-width: 992px) and (max-width: 1199px) {
+    .link-content-c {
+        width: 300px;
+        height: 200px;
+    }
+
+    .link-content-d {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media ( min-width: 1200px) {
+    .link-content-c {
+        width: 360px;
+        height: 240px;
+    }
+
+    .link-content-d {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+.prvvideo {
+    height: calc(100vh - 240px);
+    width: 100%;
+}
+
+@media (max-aspect-ratio: 1366/1060) {
+    .prvvideoi {
+        height: 105%;
+    }
+}
+
+@media (min-aspect-ratio: 1366/1060) {
+    .prvvideoi {
+        width: 105%;
+    }
+}

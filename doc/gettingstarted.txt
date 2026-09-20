@@ -1,0 +1,210 @@
+# Agrinexo: Getting Started Guide
+
+Welcome to **Agrinexo AGA (Geospatial Agroecology  Agent) 2026 Portugal Edition**, the platform that helps you monitor your farms through maps, satellite data, climate, water and artificial intelligence. This guide explains, step by step, how to start using the platform.
+
+## 1. Creating your account
+
+1. Go to the **Register** page from the login screen (the *"No account? Register"* link).
+2. Fill in your **Name**, the **Username / Email** field (minimum 5 characters) and the **Password** (minimum 6 characters), confirming it in the next field.
+3. Enter the code shown in the security image (CAPTCHA) in the **Verification code** field. If you cannot read the code, use the **"New code"** button to generate a new one.
+4. Click **"Register"**.
+5. You will receive a confirmation email. The message *"Check your email to activate your account."* means all that remains is to confirm the email before you can sign in.
+6. Open the email you received and click the activation link. You will be taken to the platform, which will show the **"Account activated."** confirmation and a **"Go to Login"** button.
+
+> **Note:** you can only sign in after confirming the email.
+
+## 2. Signing in
+
+1. On the home page (**Agrinexo**), enter your **Username** and **Password**.
+2. If you want the browser to remember your details, tick the **"Remember me"** option.
+3. Click **"Sign in"**.
+4. After signing in successfully you will see the *"Signed in successfully!"* notification and be taken automatically to the list of your **Databases** (farms).
+
+### Forgot your password?
+
+1. On the login screen, click **"Forgot your password?"**.
+2. Enter your **Username / Email** and click **"Send link"**.
+3. If the account exists, you will receive an email with a recovery link.
+4. In the link you receive, set your new password in the **"New Password"** and **"Confirm Password"** fields and click **"Save"**.
+
+## 3. Subscriptions and creating a farm
+
+Before working with data, you need at least one farm (database) associated with your account.
+
+1. On the **Databases** screen, click the **"Subscriptions"** button.
+2. In the **"Create a database"** section, enter the **Farm name**.
+3. Click **"Start trial period"** — lets you try the platform free of charge for 30 days.
+4. The **"My subscriptions"** list shows all your farms, with the type, the status and the expiry date. From here you can:
+   - **"Connect"** to go straight into the farm;
+   - **"Delete Database"** to permanently remove a farm and all its data.
+
+## 4. Choosing the farm (Databases)
+
+After signing in, the list of available farms is shown (**"Databases"**). Each farm appears on a card with:
+
+- The farm code (for example **DB1001**) and its **name**;
+- A **"Connect"** button to enter.
+
+Click **"Connect"** on the farm you want to manage. From this point on, every following screen (Crops, Animals, Operations, Reports, and so on) always refers to the selected farm. If you have no farm, you will see the message *"No database available"* — use **"Create database"** to be taken to the subscriptions.
+
+To switch farms, simply return to this screen and **"Connect"** to another one, or use **"Sign Out"** to end the session.
+
+## 5. Crops (fields and the farm map)
+
+The **"Crops"** screen is the main workspace: the list of your fields, each with its crops, beside an interactive map of the farm.
+
+### Adding a field
+
+Click **"Add field"** above the list. You are asked *"Draw the outline on the map?"*:
+
+- **"Draw"** — starts the polygon tool on the map. Click the vertices of the parcel and close the shape; you can cancel at any time. The polygon tool on the map works the same way.
+- **"Enter area"** — opens **"New Field"**, where you enter the **Name** and the **"Area (ha)"**. A field added this way has no outline: it shows in the list but not on the map, and you can draw it later.
+
+When you finish a drawing, the **"Save Polygon"** window opens, showing the area in hectares. Choose:
+
+- **"New field"** — enter the **"Field Name"** and click **"Save"**; or
+- **"Existing field"** — pick a field to *add* an outline to a field that has none, or to *replace* the outline of one that has. Replacing discards that field's stored vegetation and water analyses; its crops and records are kept.
+
+### The field list
+
+Each field shows its area; expand it to see its crops. The field icon is green when the field has an outline and ochre when it has none.
+
+- The target icon zooms the map to the field.
+- The pencil opens **"Edit Field"**: change the **"Field Name"** and click **"Save"**, or click **"Delete"** to remove the field, confirming in the **"Confirm Deletion"** dialog.
+
+A field that still has crops or records cannot be deleted: the message *"This field has crops or records. Remove them first."* appears, and nothing is removed. Delete its crops and records first (see sections 8 and 9), then delete the field.
+
+If no field exists yet, the list shows *"No field available"* — start with **"Add field"**.
+
+### Analysing a field
+
+Clicking a field's outline on the map opens an analysis window with the field name and four tabs:
+
+| Tab | Content |
+|---|---|
+| **Vegetation** | Vegetation indices (NDVI) and satellite imagery |
+| **Climate** | Historical climate data |
+| **Water** | Soil water availability |
+| **Weather** | Weather conditions |
+
+Each tab automatically loads the data for the selected field — nothing else needs to be configured. The analyses are computed over the outline, so a field without one has none.
+
+## 6. Vegetation Analysis (NDVI)
+
+In the **Vegetation** tab you will find:
+
+- The **Period** chip, with the dates covered;
+- A **chart** of NDVI on the left axis, with mean temperature (TME), precipitation (PRC) and reference evapotranspiration (ETP) on the right;
+- An **NDVI Map**: click an NDVI point on the chart (hint *"Click an NDVI point on the chart"*) to display, overlaid on the map, the satellite image for that date, with a colour legend.
+
+If there is no data yet, you will see the message *"No data available"*; while data is loading, *"Loading data..."* appears.
+
+## 7. Climate, Water and Weather Analysis
+
+On every chart, click an entry in the legend to show or hide that series.
+
+- **Climate** ("Climate Analysis"): three charts — **Analysis**, **Referential** and **Anomalies** (the difference between the two) — for the periods shown in the **Analysis** and **Referential** chips. Each shows precipitation (PRC) and reference evapotranspiration (ETP) in mm/month, and mean, maximum and minimum temperature (TME, TMX, TMI).
+- **Water** ("Water Analysis"): the field's soil water balance. It opens with readily available water (WRA), total available water (TAW) and available soil water (SAW) — useful for planning irrigation. Irrigation (IRR), precipitation (PRC), runoff and drainage (WRD), basal crop, actual and reference evapotranspiration (ETB, ETR, ETP), NDVI and the basal crop coefficient (KCB) can be switched on from the legend.
+- **Weather** ("Weather Analysis"): precipitation (PRC), reference and basal crop evapotranspiration (ETP, ETB), and mean, maximum and minimum temperature (TME, TMX, TMI) forecast/observed for the field. A dotted vertical line marks today. NDVI and KCB can be switched on from the legend.
+
+All of these tabs show their own loading indicator (for example *"Loading climate data..."*, *"Loading water data..."*, *"Loading weather data..."*) while the data is being fetched.
+
+## 8. Crops (per-field parameters)
+
+Crops are managed from the field list on the **"Crops"** screen.
+
+1. Select a field in the list and click **"Crop"** (this opens the **"New Crop"** window).
+2. Choose the **Production** — if it is not in the list, use **"New production"** at the end of the list — and the **Start Date**.
+3. Enter the length in days of each stage: **Initial**, **Development**, **Mid‑Season** and **Late‑Season**.
+4. For irrigation advice, turn on **"Irrigation parameters"** and fill in the Kc coefficients, the root depths, the initial soil water and the available water capacity. These can also be added later.
+5. Click **"Save"**. The crop appears under its field in the list.
+
+To edit a crop, click the pencil on its row (this opens **"Edit Crop"**); **"Delete"** is in the same window.
+
+Alternatively, ask the **Assistant** (the robot button): describe the crop you want to create and on which field — for example *"add a maize crop on field Almotivo starting on 2026-03-15"*. The assistant consults the field's real climate and vegetation, proposes the parameters on a card, and only after you click **"Fill the form"** does the **"New Crop"** window open with the values filled in — for you to review and **"Save"**.
+
+## 9. Farm operations
+
+The **"Operations"** screen (reachable from the main menu) lets you record every intervention carried out on the crops and livestock: planting, treatments, scouting and harvest.
+
+1. Click **"Add Operation"**.
+2. Enter the **"Operation Date"** in the calendar.
+3. Select the **Operation Type**, then the **Crop(s)** — or the **Animal groups** for a livestock operation type (you can choose several, shown as chips).
+4. For an irrigation operation type, enter the **"Irrigation Depth (mm)"**. It is added to the field's soil water balance in **Water Analysis**.
+5. Under **"Operation Images"**, you can:
+   - **"Add Image"** from your files; or
+   - **"Open Camera"** to photograph directly in the field.
+6. For each image, write a **Note**. If you want help from the AI, first attach the photograph in the **Assistant** (robot button → camera icon) and ask what can be seen — for example *"what weeds can be seen in this photograph of field Terra Grande?"*. The assistant analyses the image, answers in the conversation, and can propose the operation with the photograph and the note already filled in.
+7. In the **"Operation Inputs"** section, record the products used and their **"Rate per ha"** — for irrigation, the fertigation products.
+8. Click **"Save"** to finish.
+
+The main table shows the operation history (columns **ID, Production, Field, Operation Type, Date**), with search and the ability to edit.
+
+## 10. Reports
+
+The **"Reports"** screen shows everything recorded on the farm as a read-only tree, in two tabs:
+
+- **Crops**: field → crop → operation → input;
+- **Livestock**: animal group → operation → input.
+
+Irrigation operations show their depth next to the name, for example *Irrigation (20 mm)*; the Excel export carries it in the **"Irrigation Depth (mm)"** column.
+
+Use **"Search"** to filter — dates, rates and areas are searched too — the expand and collapse buttons to open or close every level, and the download button to export both trees to an Excel (.xlsx) file.
+
+## 11. AI Assistant
+
+The **"AI Assistant"** is an intelligent chat that answers questions about your farm — fields, vegetation, climate, crops — in natural language.
+
+1. Open it with the robot button at the top of the application.
+2. Choose the AI model in the **"Model:"** selector, if more than one is available.
+3. Write your question in the **"Type your message..."** field and send it.
+4. The assistant can automatically consult your fields and data (vegetation, climate) to give contextual answers — for example, "What was the average NDVI of Field North last month?".
+5. The conversation history is kept while you navigate within the application, but is **not saved permanently** — when the session ends, the history is lost.
+
+> **Tip:** try concrete questions such as *"Which fields do I have registered?"* or *"How is vegetation developing on field X?"*.
+
+## 12. Knowledge Base
+
+The **"Knowledge Base"** is a library of reference articles (best practice, technical information) that the AI Assistant uses to enrich its answers. It is available to the system administrator only.
+
+- Use **"Add Entry"** to create a new article, filling in **Title**, **Content** and **Tags** (comma-separated, for example: *crops, irrigation, pests*).
+- The **"Active"** switch controls whether the entry is considered in AI searches — inactive entries *"do not appear in AI searches"*.
+- You can **"Delete"** or edit existing entries, and use the **"Search"** bar to find them quickly.
+
+## 13. General navigation and menu
+
+At the top of the application you will find the **"Menu"**, with quick access to:
+
+- **Crops**
+- **Animals**
+- **Operations**
+- **Reports**
+- **Knowledge Base** (administrator only)
+- **Help** (this page)
+
+The same entries appear in the side menu. The **AI Assistant** opens from the robot button at the top.
+
+## 14. Frequently asked questions
+
+**I have no fields, what do I do?**
+Enter your farm (Databases → Connect) and, on the Crops screen, click "Add field" to draw it on the map or enter its area.
+
+**How do I know if my subscription is about to expire?**
+Check "Subscriptions" — each farm shows the status and the expiry date.
+
+**Vegetation/climate data does not appear immediately, is that normal?**
+Yes. This data depends on satellite imagery and climate series that can take a few seconds to load (the "Loading data..." indicator).
+
+**Can I use the same account on several phones/computers?**
+Yes, authentication is per user account; just sign in on each device.
+
+**Do I need technical GIS (mapping) knowledge to use the platform?**
+No. Fields are drawn directly on the map with simple tools, or registered by name and area, with no external software needed.
+
+## 15. Support
+
+If you run into a problem or have suggestions, contact the Agrinexo support team through the usual channels provided with your subscription. We recommend keeping your browser up to date for the best experience with the interactive maps and charts.
+
+---
+
+*This guide is updated regularly as new features become available on the Agrinexo platform.*

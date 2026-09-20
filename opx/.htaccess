@@ -1,0 +1,27 @@
+# No rewrite. The module is addressed as /opx/index.php and takes its route
+# from what follows: /opx/index.php/generate, /opx/index.php/health. That is
+# what agent_url in agt/config-ai-openai-compatible.php points at, and what
+# the smoke harness's --base-url expects.
+#
+# opxResolveRoute() reads PATH_INFO first and falls back to the trailing URI
+# segment, so the route resolves whether or not this host's PHP handler
+# populates PATH_INFO. Nothing here depends on mod_rewrite, RewriteBase, or
+# the module being served at any particular URL path.
+#
+# This file needs "AllowOverride All". Require all denied is in the AuthConfig
+# override class and <FilesMatch> is Override: All, so a narrower grant does
+# not skip this file - Apache returns 500 for every request in the directory.
+
+# index.php is the only file here meant to be reachable over HTTP.
+# Everything else is denied by name, so the whole directory can be copied to
+# the docroot without exposing anything:
+#
+#   config.php         this instance's shared key, and on an instance fronting
+#                      a hosted account a billable API key. PHP includes it
+#                      from disk; it is never served.
+#   config.sample.php  holds no secret, but advertises the configuration shape.
+#   README.md          internals and troubleshooting; would be served as plain
+#                      text, unlike the .php files, which execute.
+<FilesMatch "^(config\.php|config\.sample\.php|README\.md)$">
+    Require all denied
+</FilesMatch>
