@@ -7,7 +7,7 @@ AGRINEXO AGA delivers the geospatial user interface, a standard chat pane, API
 connectors and a set of AI orchestration interfaces that drive LLM reasoning,
 tool usage and WebMCP communication.
 
-Per-module purpose and tech notes for every folder shipped: the tenant app first,
+Module purpose and tech notes for every folder shipped: the tenant app first,
 the AI layers next, then the remaining static/support modules, with the
 browser extension last.
 
