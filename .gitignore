@@ -25,3 +25,6 @@ venv/
 
 ## Build artifacts / archives
 wna/wna.zip
+
+# Ignore local automation scripts
+release_sync.sh
