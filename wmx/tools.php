@@ -106,21 +106,21 @@ function wmxToolDefinitions(): array
             ],
         ],
         [
-            'name' => 'get_production_lookup',
-            'description' => 'Resolve production names or partial production names to production IDs before querying detailed records. A production is what is grown — maize, vine, tomato — as opposed to a crop, which is one cultivation of a production on one field.',
+            'name' => 'list_productions',
+            'description' => 'List the productions catalogue for this farm, with each production\'s id, name and unit of measure. A production is what is grown — maize, vine, tomato — as opposed to a crop, which is one cultivation of a production on one field. Use this to resolve a production named by the user into a production_id, or to find out which productions exist.',
             'input_schema' => [
                 'type' => 'object',
                 'properties' => [
                     'query' => [
                         'type' => 'string',
-                        'description' => 'Production name or partial production name to search for.',
+                        'description' => 'Production name or partial name to filter by.',
                     ],
                     'limit' => [
                         'type' => 'integer',
-                        'description' => 'Maximum number of matches to return. Default 10, max 25.',
+                        'description' => 'Maximum number of results to return. Default 200, max 500. The result reports total and truncated, so you can tell whether you are seeing all of them.',
                     ],
                 ],
-                'required' => ['query'],
+                'required' => [],
             ],
         ],
         [
@@ -131,7 +131,7 @@ function wmxToolDefinitions(): array
                 'properties' => [
                     'production_ids' => [
                         'type' => 'array',
-                        'description' => 'Known production IDs (from get_production_lookup) to filter by.',
+                        'description' => 'Known production IDs (from list_productions) to filter by.',
                         'items' => ['type' => 'integer'],
                     ],
                     'production_query' => [
@@ -293,7 +293,7 @@ function wmxToolDefinitions(): array
         ],
         [
             'name' => 'propose_crop',
-            'description' => 'Propose a new crop - one cultivation of one production on one field - for the user to review and save, together with the FAO-56 water-balance parameters for its cycle. Call this when the user wants to add or start a crop. Resolve the field with list_fields and the production with get_production_lookup first, and use get_field_context, and the knowledge base if you have a tool for it, to ground the parameters in that field\'s real climate and vegetation rather than reciting textbook defaults. This does NOT save anything: the user reviews the values in the form and saves them.',
+            'description' => 'Propose a new crop - one cultivation of one production on one field - for the user to review and save, together with the FAO-56 water-balance parameters for its cycle. Call this when the user wants to add or start a crop. Resolve the field with list_fields and the production with list_productions first, and use get_field_context, and the knowledge base if you have a tool for it, to ground the parameters in that field\'s real climate and vegetation rather than reciting textbook defaults. This does NOT save anything: the user reviews the values in the form and saves them.',
             'input_schema' => [
                 'type' => 'object',
                 'properties' => [
@@ -303,7 +303,7 @@ function wmxToolDefinitions(): array
                     ],
                     'production_id' => [
                         'type' => 'integer',
-                        'description' => 'What is being grown, from get_production_lookup.',
+                        'description' => 'What is being grown, from list_productions.',
                     ],
                     'dti' => [
                         'type' => 'string',
@@ -367,7 +367,7 @@ function wmxToolResultCount(array $toolResult): int
         return count($toolResult['unresolved']);
     }
 
-    foreach (['results', 'operations', 'matches', 'fields', 'crops', 'operation_types', 'inputs'] as $key) {
+    foreach (['results', 'operations', 'productions', 'fields', 'crops', 'operation_types', 'inputs'] as $key) {
         if (isset($toolResult[$key]) && is_array($toolResult[$key])) {
             return count($toolResult[$key]);
         }
@@ -429,17 +429,28 @@ function wmxDispatchTool(string $toolName, array $arguments, array $ctx): array
             return $response['data'];
         }
 
-        case 'get_production_lookup': {
-            $limit = wmxClampInt($arguments['limit'] ?? 10, 1, 25, 10);
-            $response = wmxApiRequest('crops.php', [
-                'action' => 'read',
-                'query' => trim((string) ($arguments['query'] ?? '')),
-                'limit' => $limit,
-            ], $ctx);
+        case 'list_productions': {
+            $query = trim((string) ($arguments['query'] ?? ''));
+            $limit = wmxClampInt($arguments['limit'] ?? 200, 1, 500, 200);
 
-            $matches = wmxProject($response['data'], ['id', 'name', 'description']);
+            $params = ['action' => 'read', 'limit' => $limit];
+            if ($query !== '') {
+                $params['query'] = $query;
+            }
 
-            return ['matches' => $matches, 'count' => count($matches)];
+            $response = wmxApiRequest('crops.php', $params, $ctx);
+            $rows = $response['data'];
+            $total = (int) ($response['meta']['total'] ?? count($rows));
+
+            return [
+                'productions' => $rows,
+                'count' => count($rows),
+                'total' => $total,
+                'truncated' => $total > count($rows),
+                'note' => empty($response['meta']['fell_back'])
+                    ? null
+                    : wmxFallbackNote('productions', $query, $total),
+            ];
         }
 
         case 'list_crops': {

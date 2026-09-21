@@ -350,8 +350,8 @@ function validateCropFill(array $decoded): array
         $fields = agtDispatchTool('list_fields', [], $ctx);
         $fieldsById = agtIndexById($fields['fields'] ?? []);
 
-        $productions = agtDispatchTool('get_production_lookup', ['limit' => 500], $ctx);
-        $productionsById = agtIndexById($productions['matches'] ?? []);
+        $productions = agtDispatchTool('list_productions', ['limit' => 500], $ctx);
+        $productionsById = agtIndexById($productions['productions'] ?? []);
     } catch (Throwable $exception) {
         $unresolved[] = 'could not verify ids against the farm: ' . $exception->getMessage();
     }

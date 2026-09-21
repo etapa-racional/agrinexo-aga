@@ -214,8 +214,8 @@ function wmxValidateCropFill(array $decoded): array
         $fields = wmxDispatchTool('list_fields', [], $ctx);
         $fieldsById = wmxIndexById($fields['fields'] ?? []);
 
-        $productions = wmxDispatchTool('get_production_lookup', ['limit' => 500], $ctx);
-        $productionsById = wmxIndexById($productions['matches'] ?? []);
+        $productions = wmxDispatchTool('list_productions', ['limit' => 500], $ctx);
+        $productionsById = wmxIndexById($productions['productions'] ?? []);
     } catch (Throwable $exception) {
         $unresolved[] = 'could not verify ids against the farm: ' . $exception->getMessage();
     }

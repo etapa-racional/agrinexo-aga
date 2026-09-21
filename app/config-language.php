@@ -48,7 +48,7 @@ $GLOBALS['AGN_CFG_LANGUAGE'] = [
         'login.remember'            => 'Remember me',
         'login.forgot'              => 'Forgot your password?',
         'login.submit'              => 'Sign in',
-        'login.register_link'       => 'No account? Register',
+        'login.register_link'       => 'No account? Register for a 30 days free trial.',
         'login.success'             => 'Signed in successfully!',
         'login.invalid_credentials' => 'Invalid credentials.',
 

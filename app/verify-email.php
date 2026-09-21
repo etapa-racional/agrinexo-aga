@@ -35,7 +35,7 @@ $pageTitle = t('verify_email.page_title');
                         <q-linear-progress v-if="loading" indeterminate color="primary" class="q-mb-md"></q-linear-progress>
                         <q-icon v-else :name="success ? 'check_circle' : 'error'" :color="success ? 'positive' : 'negative'" size="64px"></q-icon>
                         <div class="text-body1 q-mt-md">{{ message }}</div>
-                        <q-btn v-if="!loading" label="<?php echo th('verify_email.go_to_login'); ?>" class="q-mt-lg" @click="navigateTo('login.php')"></q-btn>
+                        <q-btn v-if="!loading" label="<?php echo th('verify_email.go_to_login'); ?>" class="q-mt-lg" @click="navigateTo('../www/')"></q-btn>
                     </q-card>
                 </q-page>
             </q-page-container>

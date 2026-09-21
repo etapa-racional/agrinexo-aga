@@ -7,9 +7,25 @@ AGRINEXO AGA delivers the geospatial user interface, a standard chat pane, API
 connectors and a set of AI orchestration interfaces that drive LLM reasoning,
 tool usage and WebMCP communication.
 
-Module purpose and tech notes for every folder shipped: the tenant app first,
-the AI layers next, then the remaining static/support modules, with the
-browser extension last.
+The implemented API connectors allow AGRINEXO AGA to use: Open AI compatible LLMs;
+Google Vertex AI compatible LLMs; and AGRINEXO AGS Agroecology Geospatial Service.
+
+AGRINEXO AGS is an API service, that manages: fields, crops, satellite imagery,
+farm records and a knowledge base with semantic search.
+
+![AGRINEXO AGA Agroecology Geospatial Agent Data Sources](agrinexo-aga-data-sources.png)
+
+Source code of this 
+[pre-release version developed for the MunichTech EXPO AI Challenge](https://devpost.com/software/agrinexo-aga) comprises:
+- app (tenant-facing web UI); 
+- agt (the agent layer);
+- wmx (tool surface);
+- opx (OpenAI-compatible model proxy); 
+- gpx (Gemini model proxy); 
+- www (public landing shells);
+- libs (vendored raster JS libraries); 
+- doc (end-user guide);
+- wna (WebMCP nano-agent, a Google Chrome browser extension we ended up developing just to verify WebMCP with Open Weights LLMs).
 
 ## app — tenant-facing web UI
 
@@ -67,19 +83,16 @@ analogue for.
 
 Python (`main.py`), containerised via `Dockerfile`, deployed with
 `deploy.sh`. Stateless, one instance per Vertex project/key, same contract as
-`opx` (`/generate`, `/health`). `smoke.py` exercises it like opx's PHP smoke
-harness.
+`opx` (`/generate`, `/health`).
 
 ## www — public landing shells
 
-Public marketing/landing shells per language (EN/PT/LAN) that host the AGT
-chat widget (`AGA-PT26-AGT-*.php`) for anonymous visitors, plus PWA manifest
-and service worker.
+Public marketing/landing shells per language (EN/PT) that host the AGT
+chat widget (`AGA-PT26-AGT-*.php`), plus PWA manifest and service worker.
 
 Plain PHP includes (`msk-*.php` fragments), no framework. Per-locale
 `config-*.php` selects copy/endpoints. `msk-sw*.js`/`msk-manifest*.php` add
-offline caching. `release.sh` prunes the non-PT locale files from the shipped
-build.
+offline caching.
 
 ## libs — vendored raster JS libraries
 
@@ -98,8 +111,7 @@ The single end-user getting-started guide (`gettingstarted.txt`,
 app's help panel.
 
 Plain text/Markdown-ish, one file per locale, no processing beyond what
-`help.php` applies to display it. Not a docs site — developer docs live in
-`doc-dev/`, which is not part of the release.
+`help.php` applies to display it.
 
 ## wna — browser extension (WebMCP nano-agent)
 
@@ -108,5 +120,4 @@ registering tools via an OpenAI-compatible model, through a side panel UI.
 
 Static JS/HTML, no build step. `content.js` runs in every frame to discover
 page-registered tools; `background.js`/`sidepanel.js` hold the chat loop;
-`config.js` holds endpoint/key. `release.sh` zips this folder into
-`wna/wna.zip` for download.
+`config.js` holds endpoint/key.
